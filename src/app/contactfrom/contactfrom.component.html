@@ -1,0 +1,47 @@
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+    <!-- Left Column -->
+    <div class="w3-third">
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Name:</p>
+        <input type="text" #name >
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email:</p> 
+        <input type="text" #email required>
+        <p></p>
+      </div>
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h5 class="w3-opacity"><b>Message:</b></h5> 
+          <textarea type="text"  #newmessage [value]="defaulttext" (click)="ClearDefaultText(newmessage)"> </textarea>
+          <!-- <div class="w3-container w3-content w3-white w3-margin-bottom"> -->
+          <p>
+            <button type="submit" (click)="GetFormData(name.value, newmessage.value)"> Send </button>
+            <button type="submit" (click)="ReturnEvent($event)"> Event </button>
+          </p>
+            {{message}}
+          <!-- </div> -->
+      </div>
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->  
+  </div>
+<!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
