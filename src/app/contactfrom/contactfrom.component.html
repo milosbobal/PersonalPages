@@ -6,26 +6,37 @@
     <div class="w3-third">
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Name:</p>
-        <input type="text" #name >
+        <input #name type="text" required>
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email:</p> 
-        <input type="text" #email required>
+        <input #email type="text" required >
         <p></p>
+      </div>
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h5 class="w3-opacity"><b>Message:</b></h5> 
+        <textarea #message [(ngModel)]="message.value" type="text" 
+        (click)="onClick(message)">{{defaulttext}}</textarea>
+        <!-- <div class="w3-container w3-content w3-white w3-margin-bottom"> -->
+        <p>
+          <button type="submit" [disabled]="isDisabled(name,email,message)"
+          (click)="GetFormData(name.value, newmessage.value)"> SEND </button>
+          <button type="submit" (click)="onClear(message)"> CLEAR </button>
+        </p>
+        <!-- </div> -->
       </div>
     <!-- End Left Column -->
     </div>
-
     <!-- Right Column -->
     <div class="w3-twothird">
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h5 class="w3-opacity"><b>Message:</b></h5> 
-          <textarea type="text"  #newmessage [value]="defaulttext" (click)="ClearDefaultText(newmessage)"> </textarea>
-          <!-- <div class="w3-container w3-content w3-white w3-margin-bottom"> -->
-          <p>
-            <button type="submit" (click)="GetFormData(name.value, newmessage.value)"> Send </button>
-            <button type="submit" (click)="ReturnEvent($event)"> Event </button>
-          </p>
-            {{message}}
-          <!-- </div> -->
+        <h5 class="w3-opacity"><b>Email Message:</b></h5> 
+        <div *ngIf="isVisible(message)">
+          Hello Milos,<br><br>
+          {{message.value}} <br>
+          <div *ngIf="isVisible(name)">
+            Best Regards {{name.value}} <br>
+            Email: {{email.value}}
+          </div>
+        </div>
       </div>
     <!-- End Right Column -->
     </div>

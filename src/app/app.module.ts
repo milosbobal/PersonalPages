@@ -9,12 +9,14 @@ import {MatCheckboxModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ContactfromComponent } from './contactfrom/contactfrom.component';
 import { HomeComponent } from './home/home.component';
+import { StoreddataComponent } from './storeddata/storeddata.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactfromComponent,
-    HomeComponent
+    HomeComponent,
+    StoreddataComponent
   ],
   imports: [
       BrowserModule,
