@@ -1,7 +1,8 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
+import { HtmlParser } from '@angular/compiler';
 
 @Component({
   selector: 'app-contactfrom',
@@ -10,6 +11,7 @@ import { HttpEventType } from '@angular/common/http';
 })
 export class ContactfromComponent implements OnInit {
   
+  @Input() public data;
   public defaulttext = "Here should be your message ....";
   public emailtext: string;
   public messagetext: string;
@@ -20,7 +22,6 @@ export class ContactfromComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
   
   isVisible(object): boolean{
@@ -60,6 +61,20 @@ export class ContactfromComponent implements OnInit {
   {
 
     return false;
+  }
+
+  FormatingMessageText(message): HTMLParagraphElement[]
+  {
+    var paragraphelement = new HTMLFormControlsCollection
+    this.messagetext = message.value;
+    var newstring  = this.messagetext.split("\n");
+
+    newstring.forEach(element => {
+    
+    var object = new HTMLParagraphElement().textContent = element;
+
+    });
+    return message;
   }
 
 }
