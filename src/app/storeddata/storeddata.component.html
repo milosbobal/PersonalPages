@@ -1,3 +1,41 @@
-<p>
-  storeddata works!
-</p>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+      <!-- Left Column -->
+      <div class="w3-third">
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <p><i class="fa fa-search fa-fw w3-margin-right w3-large w3-text-teal"></i>Search:</p>
+          <input #search type="text" required >
+          <p></p>
+          <br>
+        </div>
+      <!-- End Left Column -->
+      </div>
+      <!-- Right Column -->
+      <div class="w3-twothird">
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <table class="w3-table w3-content w3-large w3-margin-top w3-row-padding" >
+            <tr><th><h2>name</h2></th><th><h2>email adresse</h2></th><th><h2>message</h2></th></tr>
+            <tr *ngFor="let sender of senders" >
+              <td><h6>{{sender.name}}</h6></td><td>{{sender.email}}</td><td >{{sender.message}}</td>
+            </tr>
+          </table>
+          <p></p>
+          <div *ngIf="show; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+              <button (click)="show = false" style="width: 75px; background-color: red">hide</button>
+          </ng-template>
+          <ng-template #elseBlock>
+              <button   (click)="show = true" style="width: 75px; background-color: green">show</button>
+          </ng-template> 
+            <br>
+            <p></p>
+          
+        </div>
+      <!-- End Right Column -->
+      </div>
+    <!-- End Grid -->  
+    </div>
+  <!-- End Page Container -->
+  </div>

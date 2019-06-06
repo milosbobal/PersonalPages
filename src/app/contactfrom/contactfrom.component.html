@@ -6,7 +6,7 @@
     <div class="w3-third">
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Name:</p>
-        <input #name type="text" required>
+        <input #name type="text" required >
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email:</p> 
         <input #email type="text" required >
         <p></p>
@@ -23,8 +23,9 @@
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h5 class="w3-opacity"><b>Email Message:</b></h5> 
         <div *ngIf="isVisible(message)">
-          Hello Milos,<br><br>
-          <div>{{FormatingMessageText(message).value}}</div>
+          Hello Milos,
+          <br><br>
+          <div id="mailtext">{{message.value}}</div>
           <br><br>
           <div *ngIf="isVisible(name)">
             Best Regards <br>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
 @Component({
@@ -7,7 +7,9 @@ import { FormControl } from "@angular/forms";
    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-   title = 'materialApp';
+   title = 'Milos Bobal';
+   public contactdata: string;
+
    myControl = new FormControl();
    states;
    constructor(){
@@ -29,4 +31,6 @@ export class AppComponent {
          };
       });
    }
+
+
 }

@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ContactfromComponent } from './contactfrom/contactfrom.component';
 import { HomeComponent } from './home/home.component';
 import { StoreddataComponent } from './storeddata/storeddata.component';
+import { StoringdataService } from './storingdata.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { StoreddataComponent } from './storeddata/storeddata.component';
       FormsModule,
       ReactiveFormsModule
   ],
-  providers: [],
+  providers: [StoringdataService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

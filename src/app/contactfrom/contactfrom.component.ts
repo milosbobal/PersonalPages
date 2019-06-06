@@ -3,6 +3,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 import { HtmlParser } from '@angular/compiler';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-contactfrom',
@@ -11,8 +12,8 @@ import { HtmlParser } from '@angular/compiler';
 })
 export class ContactfromComponent implements OnInit {
   
-  @Input() public data;
-  public defaulttext = "Here should be your message ....";
+  @Output() public writerdata;
+  public defaulttext = "Here you can write your message ....";
   public emailtext: string;
   public messagetext: string;
   public nametext: string;
@@ -57,24 +58,20 @@ export class ContactfromComponent implements OnInit {
     }
   }
 
-  ValidateEmail() : boolean
+  FormatingMessageText(message)
   {
-
-    return false;
-  }
-
-  FormatingMessageText(message): HTMLParagraphElement[]
-  {
-    var paragraphelement = new HTMLFormControlsCollection
     this.messagetext = message.value;
     var newstring  = this.messagetext.split("\n");
 
-    newstring.forEach(element => {
-    
-    var object = new HTMLParagraphElement().textContent = element;
+    for (let index = 0; index < newstring.length; index++) {
+      const element = newstring[index];
 
-    });
-    return message;
+      var newbr = document.createElement("br");
+
+      var newtextnode = document.createTextNode(newstring[index]);
+      document.getElementById("mailtext").appendChild(newtextnode);
+      document.getElementById("mailtext").append(element);
+      
+    }
   }
-
 }
